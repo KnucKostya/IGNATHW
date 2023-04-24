@@ -2,14 +2,11 @@
     padding: 30px;
     max-width: 200px;
     display: flex;
-    padding: 10px;
 }
-
 
 .imageAndText {
     display: flex;
 }
-
 
 .imageAndText img {
     height: 40px;
