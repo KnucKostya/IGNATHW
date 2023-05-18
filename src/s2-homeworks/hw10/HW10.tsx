@@ -18,8 +18,6 @@ const HW10 = () => {
     const isLoading = useSelector((state:AppStoreType) => state.loading.isLoading)
     const dispatch = useDispatch()
 
-    console.log(isLoading)
-
     const setLoading = () => { // показать крутилку на 1,5 секунд
         dispatch(loadingAC(true))
          setTimeout(()=>{dispatch(loadingAC(false))},1500)
