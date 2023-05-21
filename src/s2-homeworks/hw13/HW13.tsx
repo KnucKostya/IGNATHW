@@ -44,15 +44,20 @@ const HW13 = () => {
                 // дописать
                 console.log(e)
                 if(e.response?.request?.status === 400){
+                    setText('Some error')
                     setImage(error400)
                 }
                 else if(e.response?.request?.status === 500){
+                    setText('Some error')
                     setImage(error500)
                 }
                 else{
                     setImage(errorUnknown)
-                    //почему при x === null цепляет 45 строчку и ищет e.response.request.status ?????????????????????????????????????????????????????????????????
+                    setText('Some error')
                 }
+            })
+            .finally(()=>{
+                setInfo('')
             })
     }
 
