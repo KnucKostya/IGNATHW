@@ -46,11 +46,15 @@ const HW13 = () => {
                 // дописать
                 console.log(e)
                 if(e.response?.request?.status === 400){
-                    setText(e.response.data.errorText)
+                    // setText(e.response.data.errorText)
+                    setText(e.message)
+
                     setImage(error400)
                 }
                 else if(e.response?.request?.status === 500){
-                    setText(e.response.data.errorText)
+                    setText(e.message)
+
+                    // setText(e.response.data.errorText)
                     setImage(error500)
                 }
                 else{
