@@ -2,7 +2,7 @@ import React, {useState} from 'react'
 import s2 from '../../s1-main/App.module.css'
 import s from './HW13.module.css'
 import SuperButton from '../hw04/common/c2-SuperButton/SuperButton'
-import axios from 'axios'
+import axios, {AxiosError} from 'axios'
 import success200 from './images/200.svg'
 import error400 from './images/400.svg'
 import error500 from './images/500.svg'
@@ -37,6 +37,8 @@ const HW13 = () => {
                 setCode('Код 200!')
                 setImage(success200)
                 setInfo('')
+                setText(res.data.info)
+                console.log(res)
                 // дописать
 
             })
@@ -44,16 +46,16 @@ const HW13 = () => {
                 // дописать
                 console.log(e)
                 if(e.response?.request?.status === 400){
-                    setText('Some error')
+                    setText(e.response.data.errorText)
                     setImage(error400)
                 }
                 else if(e.response?.request?.status === 500){
-                    setText('Some error')
+                    setText(e.response.data.errorText)
                     setImage(error500)
                 }
                 else{
                     setImage(errorUnknown)
-                    setText('Some error')
+                    setText(e.message)
                 }
             })
             .finally(()=>{
