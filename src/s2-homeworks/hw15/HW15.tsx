@@ -69,13 +69,10 @@ const HW15 = () => {
 	}
 	const onChangeSort = (newSort: string) => {
 		// делает студент
-
 		setSort(newSort)
 		setPage(1) // при сортировке сбрасывать на 1 страницу
 		sendQuery({page:page,sort:newSort,count:count})
-		// setSearchParams(
-
-		//
+		setSearchParams(newSort )//??????
 	}
 
 	useEffect(() => {
@@ -122,7 +119,6 @@ const HW15 = () => {
 						<SuperSort sort={sort} value={'developer'} onChange={onChangeSort}/>
 					</div>
 				</div>
-
 				{mappedTechs}
 			</div>
 		</div>
