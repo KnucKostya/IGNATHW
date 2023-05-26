@@ -27,7 +27,7 @@ type ParamsType = {
 	count: number
 }
 
-const getTechs = (params: ParamsType) => {
+const getTechs = (params: ParamsType = {sort: '', page: 1, count: 4} ) => {
 	return axios
 		.get<{ techs: TechType[], totalCount: number }, any>(
 			'https://samurai.it-incubator.io/api/3.0/homework/test3',
@@ -73,11 +73,13 @@ const HW15 = () => {
 		setPage(1) // при сортировке сбрасывать на 1 страницу
 		sendQuery({page:page,sort:newSort,count:count})
 		setSearchParams(newSort )//??????
+
 	}
 
 	useEffect(() => {
 		const params = Object.fromEntries(searchParams)
-		sendQuery({sort,page: +params.page, count: +params.count})
+		sendQuery({sort,page: page, count: count})
+		// sendQuery({sort,page: +params.prev, count: +params.prev})
 		setPage(+params.page || 1)
 		setCount(+params.count || 4)
 	}, [])
